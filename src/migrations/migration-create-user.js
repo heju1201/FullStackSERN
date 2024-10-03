@@ -21,15 +21,21 @@ module.exports = {
         type: Sequelize.STRING,
       },
       address: {
+        type: Sequelize.BOOLEAN,
+      },
+      phoneNumber: {
         type: Sequelize.STRING,
       },
       gender: {
         type: Sequelize.BOOLEAN,
       },
-      typeRole: {
+      image: {
         type: Sequelize.STRING,
       },
-      KeyRole: {
+      roleId: {
+        type: Sequelize.STRING,
+      },
+      positionId: {
         type: Sequelize.STRING,
       },
       createdAt: {

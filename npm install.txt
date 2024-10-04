@@ -10,3 +10,8 @@ npm install --save sequelize@6.6.2
 node_modules/.bin/sequelize init
 npx sequelize-cli db:migrate
 npx sequelize-cli db:seed:all
+
+hash password
+#25
+npm install --save bcrypt@5.0.1
+npm install --save bcryptjs@2.4.3

@@ -33,6 +33,18 @@ let hasUserPassword = (password) => {
     }
   });
 };
+let getAllUsers = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let users = db.User.findAll({ raw: true });
+      console.log(users);
+      resolve(users);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 module.exports = {
   createNewUser: createNewUser,
+  getAllUsers: getAllUsers,
 };

@@ -10,6 +10,7 @@ let initWebRoutes = (app) => {
   router.get("/get-users", HomeController.displayUsers);
   router.get("/edit-user", HomeController.editUser);
   router.post("/put-user", HomeController.putUser);
+  router.get("/delete-user", HomeController.deleteUser);
   return app.use("/", router);
 };
 module.exports = initWebRoutes;

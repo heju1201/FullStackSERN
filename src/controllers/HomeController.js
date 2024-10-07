@@ -36,6 +36,15 @@ const putUser = async (req, res) => {
   let allUsers = await CRUDServices.updateUserData(data);
   return res.render("displayusers.ejs", { dataUsers: allUsers });
 };
+const deleteUser = async (req, res) => {
+  let id = req.query.id;
+  if (id) {
+    await CRUDServices.deleteUserById(id);
+    return res.send("delete success");
+  } else {
+    return res.send("delete false");
+  }
+};
 module.exports = {
   getHomePage: getHomePage,
   getCRUD: getCRUD,
@@ -44,4 +53,5 @@ module.exports = {
   displayUsers: displayUsers,
   editUser: editUser,
   putUser: putUser,
+  deleteUser: deleteUser,
 };

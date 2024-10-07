@@ -8,6 +8,8 @@ let initWebRoutes = (app) => {
   router.get("/about", HomeController.getAboutPage);
   router.post("/post-crud", HomeController.postCRUD);
   router.get("/get-users", HomeController.displayUsers);
+  router.get("/edit-user", HomeController.editUser);
+  router.post("/put-user", HomeController.putUser);
   return app.use("/", router);
 };
 module.exports = initWebRoutes;

@@ -99,25 +99,26 @@ let createUser = (data) => {
         errCode: 1,
         message: "email already exists, Plz try another email",
       });
-    }
-    try {
-      let hasPasswordFormBcrypt = await hasUserPassword(data.password);
-      await db.User.create({
-        email: data.email,
-        password: hasPasswordFormBcrypt,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        address: data.address,
-        phoneNumber: data.phoneNumber,
-        gender: data.gender === "1" ? true : false,
-        roleId: data.roleId,
-      });
-      resolve({
-        errCode: 0,
-        message: "ok",
-      });
-    } catch (error) {
-      reject(error);
+    } else {
+      try {
+        let hasPasswordFormBcrypt = await hasUserPassword(data.password);
+        await db.User.create({
+          email: data.email,
+          password: hasPasswordFormBcrypt,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          address: data.address,
+          phoneNumber: data.phoneNumber,
+          gender: data.gender === "1" ? true : false,
+          roleId: data.roleId,
+        });
+        resolve({
+          errCode: 0,
+          message: "ok",
+        });
+      } catch (error) {
+        reject(error);
+      }
     }
   });
 };
